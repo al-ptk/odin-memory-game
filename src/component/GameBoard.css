@@ -5,6 +5,10 @@
   margin: 100px auto;
   display: grid;
 
+  /* Inner Layout */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
   /* Decorations */
   background-color: hsl(0, 0%, 80%);;
 }
