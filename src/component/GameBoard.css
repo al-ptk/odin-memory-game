@@ -10,5 +10,6 @@
   grid-template-rows: repeat(3, 1fr);
 
   /* Decorations */
-  background-color: hsl(0, 0%, 80%);;
+  background-color: hsl(0, 0%, 80%);
 }
+
