@@ -34,8 +34,16 @@ export default class Game {
    */
   getRandomOrder() {
     const keys = [...Object.keys(this.collection)];
-    for (let i = keys.length; i > -1; i--) {
-      // [keys[i], keys[parseInt(Math.random() * i)]]
+
+    // For last..first, shrink currentLength
+    for (let i = keys.length - 1; i > 0; i--) {
+
+      // Get random number 0..currentLength
+      const j = Math.floor(Math.random() * (i + 1));
+
+      // swap the random postion with the last of current length
+      [keys[i], keys[j]] = [keys[j], keys[i]];
     }
+    return keys;
   }
 }
