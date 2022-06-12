@@ -1,0 +1,23 @@
+.page-header {
+  /* Outer Layout*/
+  display: flex;
+
+  /* Inner Layout*/
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  /* Decorations */
+  background-color: hsl(0, 0%, 90%);
+}
+
+.score-keeper {
+  /* Outer Layout */
+  margin-right: 40px;
+  display: flex;
+
+  /* Inner Layout */
+  gap: 40px;
+
+  /* Decorations */
+}
