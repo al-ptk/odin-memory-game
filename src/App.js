@@ -5,8 +5,8 @@ import GameBoard from './component/GameBoard';
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <GameBoard/>
+      <Header />
+      <GameBoard />
     </div>
   );
 }

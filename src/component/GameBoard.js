@@ -9,8 +9,11 @@ export default class GameBoard extends Component {
     this.IMAGE_NUMBER = 12;
 
     this.state = {
-      cards: {},
+      cardProps: {},
+      currentScore: 0,
     };
+
+    this._setClicked = this._setClicked.bind(this);
   }
 
   componentDidMount() {
@@ -18,22 +21,69 @@ export default class GameBoard extends Component {
     Promise.all(promises)
       .then(extractUrls)
       .then(createCardPropsColelction)
-      .then((data) => this.setState({ cards: data }));
+      .then((data) => this.setState({ cardProps: data }));
+  }
+
+  cardHandleClick(id) {
+    if (this.state.cardProps[id].clicked) {
+      return this._resetGame();
+    }
+    this._setClicked(id);
+  }
+
+  _setClicked(id) {
+    const update = Object.fromEntries([
+      [id, { ...this.state.cardProps[id], clicked: true }],
+    ]);
+    const newState = {
+      ...this.state,
+      cardProps: { ...this.state.cardProps, ...update },
+      currentScore: this.state.currentScore + 1,
+    };
+    this.setState(newState);
+  }
+
+  _resetGame() {
+    this.setState({
+      ...this.state,
+      cardProps: {
+        ...this.state.cardProps,
+        ...this._getCardsReset(),
+      },
+      currentScore: 0,
+    });
+  }
+
+  _getCardsReset() {
+    const cardReset = [];
+    for (const id of Object.keys(this.state.cardProps)) {
+      cardReset.push([id, { ...this.state.cardProps[id], clicked: false }]);
+    }
+    const update = Object.fromEntries(cardReset);
+    return update;
+  }
+
+  /**
+   * It changes the card order on each re-render
+   * @returns Array of ids
+   */
+  getRandomizedCards() {
+    const randomOrder = getShuffledArray(Object.keys(this.state.cardProps));
+    return randomOrder.map((id) => {
+      return (
+        <Card
+          stateProps={this.state.cardProps[id]}
+          handleClick={() => this.cardHandleClick(id)}
+        />
+      );
+    });
   }
 
   render() {
-    const { cards } = this.state;
-
-    if (!Object.keys(cards).length)
+    if (!Object.keys(this.state.cardProps).length)
       return <div className="load-screen">Loading...</div>;
 
-    return (
-      <div className="game-board">
-        {Object.keys(cards).map((id) => {
-          return <Card stateProps={cards[id]} />;
-        })}
-      </div>
-    );
+    return <div className="game-board">{this.getRandomizedCards()}</div>;
   }
 }
 
@@ -76,7 +126,7 @@ function createImg(url) {
 function createCardProps(url) {
   return {
     image: createImg(url),
-    caption: "I'm a caption",
+    caption: "I'm a new caption",
     clicked: false,
   };
 }
