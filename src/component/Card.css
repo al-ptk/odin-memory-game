@@ -1,6 +1,6 @@
 .card {
   /* Outer Layout */
-    width: 85%;
+  width: 85%;
   height: 90%;
   margin: auto;
   display: flex;
@@ -19,6 +19,7 @@
 .card-img {
   width: 100%;
   height: 80%;
+  flex: 0 0 auto;
 
   background-color: black;
   color: white;
