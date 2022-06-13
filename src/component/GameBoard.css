@@ -7,9 +7,25 @@
 
   /* Inner Layout */
   grid-template-columns: repeat(4, minmax(75px, 1fr));
-  grid-template-rows: repeat(3,  minmax(100px, 1fr));
+  grid-template-rows: repeat(3, minmax(100px, 1fr));
 
   /* Decorations */
   background-color: hsl(0, 0%, 80%);
 }
 
+.load-screen {
+  /* Outer Layout */
+  width: 800px;
+  height: 720px;
+  margin: 100px auto;
+  display: flex;
+
+  /* Inner Layout */
+  justify-content: center;
+  align-items: center;
+
+  /* Decorations */
+  background-color: hsl(0, 0%, 80%);
+  font-size: 64px;
+  font-weight: bold;
+}
