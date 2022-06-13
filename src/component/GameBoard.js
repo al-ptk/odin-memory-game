@@ -7,7 +7,6 @@ export default function GameBoard(props) {
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
 
-
   // <---------------------------------------------------------------------->
   // On mount, preload images
   useEffect(() => {
@@ -27,28 +26,18 @@ export default function GameBoard(props) {
       .then((imgComponents) => setImages(imgComponents));
   }, []);
 
-
   // <---------------------------------------------------------------------->
   // On images loaded, build cards
   useEffect(() => {
-    setCards(
-      images.map((img) => (
-        <Card
-          img={img}
-          setScore={setScore}
-        />
-      ))
-    );
+    setCards(images.map((img) => <Card img={img} setScore={setScore} />));
   }, [images]);
-
 
   // <---------------------------------------------------------------------->
   // On score change, shuffle cards
   useEffect(() => {
-    console.log(score)
-    setCards(getShuffledArray(cards));
+    console.log('cards change');
+    setCards(() => getShuffledArray(cards));
   }, [cards, score]);
-
 
   // <---------------------------------------------------------------------->
   // If images aren't loaded
@@ -60,6 +49,7 @@ export default function GameBoard(props) {
     );
   }
 
+  // If images are loaded
   return <div className="game-board">{cards}</div>;
 }
 

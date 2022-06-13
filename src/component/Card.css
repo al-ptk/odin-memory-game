@@ -24,3 +24,7 @@
   background-color: black;
   color: white;
 }
+
+.card-clicked {
+  background-color: aqua;
+}
