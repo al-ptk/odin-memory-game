@@ -5,6 +5,7 @@ import './GameBoard.css';
 export default class GameBoard extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.IMAGE_NUMBER = 12;
 
@@ -22,6 +23,13 @@ export default class GameBoard extends Component {
       .then(extractUrls)
       .then(createCardPropsColelction)
       .then((data) => this.setState({ cardProps: data }));
+  }
+
+  componentDidUpdate() {
+    this.props.updateScore(this.state.currentScore);
+    if (this.props.bestScore < this.state.currentScore) {
+      this.props.updateBestScore(this.state.currentScore);
+    }
   }
 
   cardHandleClick(id) {
