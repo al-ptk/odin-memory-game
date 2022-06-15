@@ -4,7 +4,7 @@ export default function Header(props) {
   const { score, bestScore } = props;
   return (
     <header className="page-header">
-      <h1>I'm the Header!</h1>
+      <h1>Ye Ol' Memories</h1>
       <div className="score-keeper">
         <p>
           <span>{score}</span>/12

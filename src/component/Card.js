@@ -1,12 +1,11 @@
 import './Card.css';
 
 export default function Card(props) {
-  const { image, clicked, caption } = props.stateProps;
-  console.log(image);
+  const { image, picked, caption, handleClick } = props.stateProps;
   return (
     <div
-      className={`card${clicked ? ' card-clicked' : ''}`}
-      onClick={props.handleClick}
+      className={`card${picked ? ' card-clicked' : ''}`}
+      onClick={handleClick}
     >
       {image}
       <p>{caption}</p>
