@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/odin-memory-game/static/css/main.b3c7435a.css",
-    "main.js": "/odin-memory-game/static/js/main.7ba6120b.js",
+    "main.js": "/odin-memory-game/static/js/main.1407d407.js",
     "index.html": "/odin-memory-game/index.html",
     "main.b3c7435a.css.map": "/odin-memory-game/static/css/main.b3c7435a.css.map",
-    "main.7ba6120b.js.map": "/odin-memory-game/static/js/main.7ba6120b.js.map"
+    "main.1407d407.js.map": "/odin-memory-game/static/js/main.1407d407.js.map"
   },
   "entrypoints": [
     "static/css/main.b3c7435a.css",
-    "static/js/main.7ba6120b.js"
+    "static/js/main.1407d407.js"
   ]
 }
