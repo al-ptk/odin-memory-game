@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 import './GameBoard.css';
 import { getImages, getCaptions } from '../fetchYeMemories';
